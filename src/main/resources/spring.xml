@@ -9,7 +9,7 @@
         ">
 
     <!--开启注解扫描-->
-    <context:component-scan base-package="com.controller,com.dao,com.service,com.entity"/>
+    <context:component-scan base-package="com.juwuhe.controller,com.juwuhe.dao,com.juwuhe.service,com.juwuhe.entity"/>
 
     <!--mybatis与spring进行整合-->
         <!--在此项目中采用纯配置文件的结构形式来使用mybatis-->
@@ -34,7 +34,9 @@
         <!--创建SqlSession对象-->
         <bean id="SqlSession" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
             <property name="sqlSessionFactoryBeanName" value="factory"/>
-            <property name="basePackage" value="com.dao"/>
+            <!--通过连接SqlSessionFactory创建SqlSession对象-->
+            <property name="basePackage" value="com.juwuhe.dao"/>
+            <!--扫描包下-->
         </bean>
 
 

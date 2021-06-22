@@ -10,7 +10,7 @@
 ">
 
     <!-- 扫描包下的注解 -->
-    <context:component-scan base-package="com.controller,com.service,com.dao"/>
+    <context:component-scan base-package="com.juwuhe.controller,com.juwuhe.service,com.juwuhe.dao"/>
     <!-- 开启 mvc 注解 -->
     <mvc:annotation-driven/>
     <!--声明视图解析器-->
