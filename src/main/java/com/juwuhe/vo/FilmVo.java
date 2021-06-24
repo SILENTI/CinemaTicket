@@ -5,7 +5,7 @@ public class FilmVo {
     /**
      * 视图展示的对象
      * */
-
+    private String filmId;
     private String name;
     private String director;
     private String imgPath;
@@ -13,10 +13,19 @@ public class FilmVo {
     public FilmVo() {
     }
 
-    public FilmVo(String name, String director, String imgPath) {
+    public FilmVo(String filmId, String name, String director, String imgPath) {
+        this.filmId = filmId;
         this.name = name;
         this.director = director;
         this.imgPath = imgPath;
+    }
+
+    public String getFilmId() {
+        return filmId;
+    }
+
+    public void setFilmId(String filmId) {
+        this.filmId = filmId;
     }
 
     public String getName() {

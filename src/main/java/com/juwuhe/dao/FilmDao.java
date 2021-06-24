@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface FilmDao {
 
-    List<Film> selectFilmInfo ();
+    List<Film> selectFilm ();
+
+    Film selectFilmInfo (String filmid) ;
 }
