@@ -1,0 +1,69 @@
+2021.6.17~需求关系分析
+            参照淘票票，设计影院售票系统
+
+2021.6.18~SSM框架整合
+
+2021.6.21~22影片列表展示
+            使用jsp和jstl进行影片的展示
+
+2021.6.23~影排片功能
+
+            排片表paly：
+                id    	主键（自增）  	bigint
+                play_id	场次唯一id    	varchar
+                play_time	放映时间	datetime
+                lan_type	语言版本	varchar
+                price	票价	decimal  （double）
+                room_id	放映厅唯一id	varchar
+                room_name	放映厅名字	varchar
+                film_id	电影id	varchar
+
+            影厅表room：
+                id    	主键（自增）  	bigint
+                room_id	放映厅唯一id    	varchar
+                room_name	放映厅名字	varchar
+                situation	座位分布	varchar
+
+2021.6.24~mybatis-generator组件学习
+            底层反射读取数据库，desc ，根据数据库中的信息字段，反射按规则写入文件；代码生成器；
+
+            使用：
+                引用generator的Maven依赖
+                在resource文件夹中创建generatorConfig.xml配置文件
+                使用Maven中的generator插件
+
+                generatorConfig.xml详情：
+                    <!DOCTYPE generatorConfiguration PUBLIC
+                            "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+                            "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+                    <generatorConfiguration>
+                        <context id="simple" targetRuntime="MyBatis3Simple">
+                            <!--生成的java文件编码格式-->
+                            <property name="javaFileEncoding" value="UTF-8"/>
+
+                            <!--注释生成器-->
+                            <commentGenerator>
+                                <property name="suppressDate" value="true"/>
+                                <property name="suppressAllComments" value="true"/>
+                            </commentGenerator>
+
+                            <!--数据库连接配置-->
+                            <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                                            connectionURL="jdbc:mysql://localhost:3306/ssm"
+                                            userId="root" password="123456"/>
+
+                            <!--生成entity/domain对象-->
+                            <javaModelGenerator targetPackage="com.duing.entity" targetProject="src/main/java"/>
+
+                            <!--生成mapper文件-->
+                            <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources"/>
+
+                            <!--生成mapper接口/dao接口-->
+                            <javaClientGenerator type="XMLMAPPER" targetPackage="com.duing.dao" targetProject="src/main/java"/>
+
+                            <!--对应表名-->
+                            <table tableName="room"/>
+                        </context>
+                    </generatorConfiguration>
+
+2021.6.25~
