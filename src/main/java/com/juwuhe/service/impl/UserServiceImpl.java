@@ -1,6 +1,5 @@
 package com.juwuhe.service.impl;
 
-import com.juwuhe.dao.UserDao;
 import com.juwuhe.entity.User;
 import com.juwuhe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +11,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Override
     public List<User> selectUserInfo() {
-        return userDao.selectUserInfo();
+        return userMapper.selectUserInfo();
     }
 }

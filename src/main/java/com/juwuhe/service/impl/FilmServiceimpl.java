@@ -1,6 +1,6 @@
 package com.juwuhe.service.impl;
 
-import com.juwuhe.dao.FilmDao;
+import com.juwuhe.dao.FilmMapper;
 import com.juwuhe.entity.Film;
 import com.juwuhe.service.FilmService;
 import com.juwuhe.vo.FilmInfoVo;
@@ -15,11 +15,11 @@ import java.util.List;
 public class FilmServiceimpl implements FilmService {
 
     @Autowired
-    private FilmDao filmDao;
+    private FilmMapper filmMapper;
 
     @Override
     public List<FilmVo> selectFilm() {
-        List<Film> films = filmDao.selectFilm();
+        List<Film> films = filmMapper.selectFilm();
         ArrayList<FilmVo> filmVos = new ArrayList<>();
         for (Film film : films){
             FilmVo filmVo = new FilmVo();
@@ -34,7 +34,7 @@ public class FilmServiceimpl implements FilmService {
 
     @Override
     public FilmInfoVo selectFilmInfo(String filmid) {
-            Film film = filmDao.selectFilmInfo(filmid);
+            Film film = filmMapper.selectFilmInfo(filmid);
            FilmInfoVo infoVo =  new FilmInfoVo();
            infoVo.setName(film.getName());
            infoVo.setCountry(film.getCountry());

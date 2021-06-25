@@ -4,7 +4,7 @@ import com.juwuhe.entity.Film;
 
 import java.util.List;
 
-public interface FilmDao {
+public interface FilmMapper {
 
     List<Film> selectFilm ();
 
