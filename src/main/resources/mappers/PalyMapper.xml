@@ -3,88 +3,54 @@
 <mapper namespace="com.juwuhe.dao.PalyMapper">
   <resultMap id="BaseResultMap" type="com.juwuhe.entity.Paly">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <id column="play_id" jdbcType="VARCHAR" property="playId" />
+    <result column="play_id" jdbcType="VARCHAR" property="playId" />
     <result column="play_time" jdbcType="TIMESTAMP" property="playTime" />
     <result column="lan_type" jdbcType="VARCHAR" property="lanType" />
     <result column="price" jdbcType="DECIMAL" property="price" />
     <result column="room_id" jdbcType="VARCHAR" property="roomId" />
     <result column="room_name" jdbcType="VARCHAR" property="roomName" />
     <result column="film_id" jdbcType="VARCHAR" property="filmId" />
+    <result column="film_name" jdbcType="VARCHAR" property="filmName" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="map">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from paly
     where id = #{id,jdbcType=INTEGER}
-      and play_id = #{playId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.juwuhe.entity.Paly">
     insert into paly (id, play_id, play_time, 
       lan_type, price, room_id, 
-      room_name, film_id)
+      room_name, film_id, film_name
+      )
     values (#{id,jdbcType=INTEGER}, #{playId,jdbcType=VARCHAR}, #{playTime,jdbcType=TIMESTAMP}, 
       #{lanType,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{roomId,jdbcType=VARCHAR}, 
-      #{roomName,jdbcType=VARCHAR}, #{filmId,jdbcType=VARCHAR})
+      #{roomName,jdbcType=VARCHAR}, #{filmId,jdbcType=VARCHAR}, #{filmName,jdbcType=VARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.juwuhe.entity.Paly">
     update paly
-    set play_time = #{playTime,jdbcType=TIMESTAMP},
+    set play_id = #{playId,jdbcType=VARCHAR},
+      play_time = #{playTime,jdbcType=TIMESTAMP},
       lan_type = #{lanType,jdbcType=VARCHAR},
       price = #{price,jdbcType=DECIMAL},
       room_id = #{roomId,jdbcType=VARCHAR},
       room_name = #{roomName,jdbcType=VARCHAR},
-      film_id = #{filmId,jdbcType=VARCHAR}
+      film_id = #{filmId,jdbcType=VARCHAR},
+      film_name = #{filmName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
-      and play_id = #{playId,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
-    select id, play_id, play_time, lan_type, price, room_id, room_name, film_id
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, play_id, play_time, lan_type, price, room_id, room_name, film_id, film_name
     from paly
     where id = #{id,jdbcType=INTEGER}
-      and play_id = #{playId,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, play_id, play_time, lan_type, price, room_id, room_name, film_id
+    select id, play_id, play_time, lan_type, price, room_id, room_name, film_id, film_name
     from paly
   </select>
-  <resultMap id="BaseResultMap" type="com.juwuhe.entity.Paly">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <id column="play_id" jdbcType="VARCHAR" property="playId" />
-    <result column="play_time" jdbcType="TIMESTAMP" property="playTime" />
-    <result column="lan_type" jdbcType="VARCHAR" property="lanType" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="room_id" jdbcType="VARCHAR" property="roomId" />
-    <result column="room_name" jdbcType="VARCHAR" property="roomName" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="map">
-    delete from paly
-    where id = #{id,jdbcType=INTEGER}
-      and play_id = #{playId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.juwuhe.entity.Paly">
-    insert into paly (id, play_id, play_time, 
-      lan_type, price, room_id, 
-      room_name)
-    values (#{id,jdbcType=INTEGER}, #{playId,jdbcType=VARCHAR}, #{playTime,jdbcType=TIMESTAMP}, 
-      #{lanType,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{roomId,jdbcType=VARCHAR}, 
-      #{roomName,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.juwuhe.entity.Paly">
-    update paly
-    set play_time = #{playTime,jdbcType=TIMESTAMP},
-      lan_type = #{lanType,jdbcType=VARCHAR},
-      price = #{price,jdbcType=DECIMAL},
-      room_id = #{roomId,jdbcType=VARCHAR},
-      room_name = #{roomName,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-      and play_id = #{playId,jdbcType=VARCHAR}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
-    select id, play_id, play_time, lan_type, price, room_id, room_name
+
+  <select id="selectByFilmKey" resultMap="BaseResultMap">
+    select id, play_id, play_time, lan_type, price, room_id, room_name, film_id, film_name
     from paly
-    where id = #{id,jdbcType=INTEGER}
-      and play_id = #{playId,jdbcType=VARCHAR}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, play_id, play_time, lan_type, price, room_id, room_name
-    from paly
+    where film_id = #{film_id}
   </select>
 </mapper>

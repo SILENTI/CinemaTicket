@@ -8,6 +8,8 @@
 
 2021.6.23~影排片功能
 
+            由用户选择，根据影片的film_id查询到影片的排片信息
+
             排片表paly：
                 id    	主键（自增）  	bigint
                 play_id	场次唯一id    	varchar

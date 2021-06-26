@@ -2,16 +2,17 @@ package com.juwuhe.dao;
 
 import com.juwuhe.entity.Paly;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface PalyMapper {
-    int deleteByPrimaryKey(@Param("id") Integer id, @Param("playId") String playId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Paly record);
 
-    Paly selectByPrimaryKey(@Param("id") Integer id, @Param("playId") String playId);
+    Paly selectByPrimaryKey(Integer id);
 
     List<Paly> selectAll();
 
     int updateByPrimaryKey(Paly record);
+
+    List<Paly> selectByFilmKey (String film_id);
 }

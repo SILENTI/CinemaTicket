@@ -1,9 +1,8 @@
-package com.juwuhe.entity;
+package com.juwuhe.vo;
 
 import java.util.Date;
 
-public class Paly {
-    private Integer id;
+public class PalyVO {
 
     private String playId;
 
@@ -21,12 +20,36 @@ public class Paly {
 
     private String filmName;
 
-    public Integer getId() {
-        return id;
+    public String getFilmName() {
+        return filmName;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setFilmName(String filmName) {
+        this.filmName = filmName;
+    }
+
+    public PalyVO(String playId, Date playTime, String lanType, Long price, String roomId, String roomName, String filmId, String filmName) {
+        this.playId = playId;
+        this.playTime = playTime;
+        this.lanType = lanType;
+        this.price = price;
+        this.roomId = roomId;
+        this.roomName = roomName;
+        this.filmId = filmId;
+        this.filmName = filmName;
+    }
+
+    public PalyVO() {
+    }
+
+    public PalyVO(String playId, Date playTime, String lanType, Long price, String roomId, String roomName, String filmId) {
+        this.playId = playId;
+        this.playTime = playTime;
+        this.lanType = lanType;
+        this.price = price;
+        this.roomId = roomId;
+        this.roomName = roomName;
+        this.filmId = filmId;
     }
 
     public String getPlayId() {
@@ -83,13 +106,5 @@ public class Paly {
 
     public void setFilmId(String filmId) {
         this.filmId = filmId;
-    }
-
-    public String getFilmName() {
-        return filmName;
-    }
-
-    public void setFilmName(String filmName) {
-        this.filmName = filmName;
     }
 }
