@@ -17,6 +17,8 @@ public class Paly {
 
     private String roomName;
 
+    private String filmId;
+
     public Integer getId() {
         return id;
     }
@@ -71,5 +73,13 @@ public class Paly {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public String getFilmId() {
+        return filmId;
+    }
+
+    public void setFilmId(String filmId) {
+        this.filmId = filmId;
     }
 }

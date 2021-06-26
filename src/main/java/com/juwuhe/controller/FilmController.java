@@ -43,7 +43,7 @@ public class FilmController {
     public String filmInfo (@RequestParam("filmId") String filmid , Model model) {
         FilmInfoVo filmVo = filmServiceimpl.selectFilmInfo(filmid);
         model.addAttribute("detailVo",filmVo);
-        return "detail";
+        return "Detail";
     }
 
 
