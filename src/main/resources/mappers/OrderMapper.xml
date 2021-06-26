@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juwuhe.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.juwuhe.entity.Order">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="ordercol" jdbcType="VARCHAR" property="ordercol" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="play_id" jdbcType="VARCHAR" property="playId" />
+    <result column="seat" jdbcType="INTEGER" property="seat" />
+    <result column="u_id" jdbcType="VARCHAR" property="uId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from order
+    where id = #{id,jdbcType=INTEGER}
+      and ordercol = #{ordercol,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.juwuhe.entity.Order">
+    insert into order (id, ordercol, create_time, 
+      price, play_id, seat, 
+      u_id)
+    values (#{id,jdbcType=INTEGER}, #{ordercol,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{price,jdbcType=DECIMAL}, #{playId,jdbcType=VARCHAR}, #{seat,jdbcType=INTEGER}, 
+      #{uId,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.juwuhe.entity.Order">
+    update order
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=DECIMAL},
+      play_id = #{playId,jdbcType=VARCHAR},
+      seat = #{seat,jdbcType=INTEGER},
+      u_id = #{uId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+      and ordercol = #{ordercol,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select id, ordercol, create_time, price, play_id, seat, u_id
+    from order
+    where id = #{id,jdbcType=INTEGER}
+      and ordercol = #{ordercol,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, ordercol, create_time, price, play_id, seat, u_id
+    from order
+  </select>
+</mapper>

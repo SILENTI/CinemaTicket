@@ -66,4 +66,36 @@
                         </context>
                     </generatorConfiguration>
 
-2021.6.25~
+2021.6.25~订单功能和登录功能的概述
+
+            订单功能：
+
+                购票流程：
+                        进入电影详情界面面——>点击购票——>跳转到购票的详情界面——>选择座位号（实际上是将座位号、选择的座位数量、影厅存入订单表中）
+
+
+                订单功能——数据库订单表的设计：
+
+                        id    	主键（自增）  	bigint
+                        order_id	订单唯一id    	varchar
+                        create_time	创建时间	datetime
+                        price	金额	decimal
+                        play_id	场次id	varchar
+                        seat_num	座位数量	int
+                        seat	具体座位	varchar
+                        user_id	用户id	varchar
+
+                         先将座位初始化信息返回   通过异步的方式（ajax）   获取已卖出的座位  再进行渲染
+
+            登录功能：
+
+                session和cookie的区别
+
+                    session：存储在后端，存在于一次对话的请求过程
+
+                    cookie：'小甜点',存储在客户端，每次请求都会携带cookie，相比于session而言，不安全；cookie是有有效期的；
+
+
+                分布式session的概念
+
+                    解决方案：session复制、粘性session、session共享
