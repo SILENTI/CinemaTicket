@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Cherise
-  Date: 2021/6/23
-  Time: 21:12
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -17,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="layui/css/layui.css" media="all">
 </head>
-<div class="layui-layout layui-layout-admin">
+<%--<div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo layui-hide-xs layui-bg-blue">
             <li class="l"><a href="Main"><span style="font-size: 30px;">无限电影</span></a></li>
@@ -47,7 +41,7 @@
             </li>
         </ul>
     </div>
-</div>
+</div>--%>
 
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css"/>

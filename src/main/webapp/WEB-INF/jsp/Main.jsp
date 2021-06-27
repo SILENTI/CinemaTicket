@@ -47,10 +47,21 @@
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item layui-hide layui-show-md-inline-block">
-                <a href="">
-                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                    李时珍
+
+
+                <c:if test="${sessionScope.User.username ==null && sessionScope.User.password ==null  }">
+                <a href="Login">
+                    <img src="img/NotLogin.png" class="layui-nav-img">
+                    未登录
                 </a>
+                </c:if>
+                <c:if test="${sessionScope.User.username != null && sessionScope.User.password != null }">
+                    <a href="User">
+                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                    ${sessionScope.User.username}
+                    </a>
+                </c:if>
+
                 <dl class="layui-nav-child">
                     <dd><a href="">Your Profile</a></dd>
                     <dd><a href="">Settings</a></dd>
@@ -61,48 +72,49 @@
     </div>
 </div>
 
-<%--保持原有的框架的处理，一个指定的区域引用其他界面--%>
-                <!--Film信息展示-->
-                <table bgcolor="0" align="center">
-                    <tr>
-                        <c:forEach items="${filmVoList}" var="film" begin="0" end="3">
-                            <td>
-                                <div style="width: 250px; margin:10px;">
-                                    <a href="filmInfo?filmId=${film.filmId}">
-                                        <img src="${pageContext.request.contextPath}${film.imgPath}"
-                                             style="width: 250px;height: 380px"/>
-                                    </a>
 
-                                    <div class="piao">
-                                        <p style="color: white; top: 50px;">${film.name}</p>
 
-                                        <p style="color: white; top: 50px;">导演:${film.director}</p>
-                                    </div>
-                                </div>
-                            </td>
-                        </c:forEach>
-                    </tr>
-                    <tr>
-                        <c:forEach items="${filmVoList}" var="film" begin="4" end="7">
-                            <td>
-                                <div style="width: 250px; margin:10px;">
-                                    <a href="filmInfo?filmId=${film.filmId}">
-                                        <img src="${pageContext.request.contextPath}${film.imgPath}"
-                                             style="width: 250px;height: 380px"/>
-                                    </a>
-                                    <div class="piao">
-                                        <p style="color: white; top: 50px;">${film.name}</p>
-                                        <p style="color: white; top: 50px;">导演:${film.director}</p>
-                                    </div>
-                                </div>
-                            </td>
-                        </c:forEach>
-                    </tr>
-                </table>
+<table  bgcolor="0" align="center">
+    <tr>
+        <c:forEach items="${filmVoList}" var="film" begin="0" end="3">
+            <td>
+                <div style="width: 250px; margin:10px;">
+                    <a href="filmInfo?filmId=${film.filmId}">
+                        <img src="${pageContext.request.contextPath}${film.imgPath}"
+                             style="width: 250px;height: 380px"/>
+                    </a>
+
+                    <div class="piao">
+                        <p style="color: white; top: 50px;">${film.name}</p>
+
+                        <p style="color: white; top: 50px;">导演:${film.director}</p>
+                    </div>
+                </div>
+            </td>
+        </c:forEach>
+    </tr>
+    <tr>
+        <c:forEach items="${filmVoList}" var="film" begin="4" end="7">
+            <td>
+                <div style="width: 250px; margin:10px;">
+                    <a href="filmInfo?filmId=${film.filmId}">
+                        <img src="${pageContext.request.contextPath}${film.imgPath}"
+                             style="width: 250px;height: 380px"/>
+                    </a>
+                    <div class="piao">
+                        <p style="color: white; top: 50px;">${film.name}</p>
+                        <p style="color: white; top: 50px;">导演:${film.director}</p>
+                    </div>
+                </div>
+            </td>
+        </c:forEach>
+    </tr>
+</table>
+                
 
 
 <script src="layui/layui.js" charset="utf-8"></script>
-<script>
+<script >
 
 </script>
 </body>
