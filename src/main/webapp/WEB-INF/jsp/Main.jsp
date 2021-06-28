@@ -1,32 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>无限</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="layui/css/layui.css"  media="all">
 </head>
-
-<%--CSS样式--%>
-<style type="text/css">
-    body {
-        background: #2E323B;
+<style>
+    #content{
+        overflow-y: scroll;
+        -ms-overflow-style:none;
+        scrollbar-width: none;
     }
-
-    .piao {
-        text-align: center;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        width: 238px;
-        padding: 6px;
-        line-height: 20px;
-        background: #5f5f6d;
+    ::-webkit-scrollbar {
+        display: none;
     }
 </style>
-
 <body>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
@@ -57,8 +49,8 @@
 
                 <c:if test="${sessionScope.user.username != null && sessionScope.user.password != null }">
                     <a href="User">
-                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                    ${sessionScope.user.username}
+                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                            ${sessionScope.user.username}
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="">我的订单</a></dd>
@@ -72,46 +64,7 @@
     </div>
 </div>
 
-
-
-<table  bgcolor="0" align="center">
-    <tr>
-        <c:forEach items="${filmVoList}" var="film" begin="0" end="3">
-            <td>
-                <div style="width: 250px; margin:10px;">
-                    <a href="filmInfo?filmId=${film.filmId}">
-                        <img src="${pageContext.request.contextPath}${film.imgPath}"
-                             style="width: 250px;height: 380px"/>
-                    </a>
-
-                    <div class="piao">
-                        <p style="color: white; top: 50px;">${film.name}</p>
-
-                        <p style="color: white; top: 50px;">导演:${film.director}</p>
-                    </div>
-                </div>
-            </td>
-        </c:forEach>
-    </tr>
-    <tr>
-        <c:forEach items="${filmVoList}" var="film" begin="4" end="7">
-            <td>
-                <div style="width: 250px; margin:10px;">
-                    <a href="filmInfo?filmId=${film.filmId}">
-                        <img src="${pageContext.request.contextPath}${film.imgPath}"
-                             style="width: 250px;height: 380px"/>
-                    </a>
-                    <div class="piao">
-                        <p style="color: white; top: 50px;">${film.name}</p>
-                        <p style="color: white; top: 50px;">导演:${film.director}</p>
-                    </div>
-                </div>
-            </td>
-        </c:forEach>
-    </tr>
-</table>
-                
-
+<iframe src="Films"  scrolling="auto" frameborder="0"  height="100%" width="100%"></iframe>
 
 <script src="layui/layui.js" charset="utf-8"></script>
 <script>
@@ -127,3 +80,6 @@
 </script>
 </body>
 </html>
+
+
+

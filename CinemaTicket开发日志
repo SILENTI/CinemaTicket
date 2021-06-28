@@ -68,7 +68,7 @@
                         </context>
                     </generatorConfiguration>
 
-2021.6.25~订单功能和登录功能的概述
+2021.6.25~26订单功能和登录功能的概述
 
             订单功能：
 
@@ -104,5 +104,31 @@
 
                 对于登录方案，通过在html页面展示，通过Ajax异步请求，向数据库读取数据；
 
+                对于取消登录功能，通过发送请求清除服务端的Session，实现目标
 
+                         Enumeration em = request.getSession().getAttributeNames();
+                                while(em.hasMoreElements()){
+                                    request.getSession().removeAttribute(em.nextElement().toString());
+                                }
+
+2021.6.28~等于界面进行优化
+
+            引入行内框架，减少代码的冗余，讲Main.jsp 的导航栏固定
+
+            引入iframe标签
+
+                <iframe src="Films"  scrolling="auto" frameborder="0"  height="100%" width="100%"></iframe>
+
+            关闭原有的Main中的滚动条
+
+                    <style>
+                        #content{
+                            overflow-y: scroll;
+                            -ms-overflow-style:none;
+                            scrollbar-width: none;
+                        }
+                        ::-webkit-scrollbar {
+                            display: none;
+                        }
+                    </style>
 

@@ -10,50 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="layui/css/layui.css" media="all">
 </head>
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo layui-hide-xs layui-bg-blue">
-            <li class="l"><a href="Main"><span style="font-size: 30px;">无限电影</span></a></li>
-        </div>
-        <!-- 头部区域（可配合layui 已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <!-- 移动端显示 -->
-            <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
-                <i class="layui-icon layui-icon-spread-left"></i>
-            </li>
-
-            <li class="layui-nav-item layui-hide-xs"><a href="Main">首页</a></li>
-            <li class="layui-nav-item layui-hide-xs"><a href="">电影</a></li>
-            <li class="layui-nav-item layui-hide-xs"><a href="">影院</a></li>
-        </ul>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item layui-hide layui-show-md-inline-block">
-                <c:if test="${sessionScope.user.username ==null && sessionScope.user.password ==null  }">
-                    <a href="Login">
-                        <img src="img/NotLogin.png" class="layui-nav-img">
-                        未登录
-                    </a>
-                </c:if>
-                <c:if test="${sessionScope.user.username != null && sessionScope.user.password != null }">
-                    <a href="User">
-                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                            ${sessionScope.user.username}
-                    </a>
-                    <a href="User">
-                        <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                            ${sessionScope.user.username}
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">我的订单</a></dd>
-                        <dd><a href="">基本信息</a></dd>
-                        <dd><a href="SignOut">退出登录</a></dd>
-                    </dl>
-                </c:if>
-            </li>
-        </ul>
-    </div>
-</div>
-
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css"/>
 
@@ -74,6 +30,7 @@
 
 </style>
 <body>
+
 <div class="container">
     <div class="container detailed">
         <div class="container" style="margin-top: 20px;">

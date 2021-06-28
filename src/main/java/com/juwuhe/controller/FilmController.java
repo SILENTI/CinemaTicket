@@ -22,20 +22,20 @@ public class FilmController {
     @Autowired
     private FilmServiceimpl filmServiceimpl ;
 
-    /**已上映的影片*/
+    /**已上映的影片
     @RequestMapping("/FilmInfo")
     @ResponseBody
     public List<FilmVo> filmInfo(Model model){
         List<FilmVo> filmVos = filmServiceimpl.selectFilm();
         model.addAttribute("filmVo",filmVos);
         return filmVos;
-    }
+    }*/
 
     /**影片的详细信息*/
-    @RequestMapping("/Main")
-    public String Main (Model model) {
+    @RequestMapping("/Films")
+    public String Films (Model model) {
         model.addAttribute("filmVoList",filmServiceimpl.selectFilm());
-        return "Main";
+        return "Films";
     }
 
     /**单个影片的详细信息*/
