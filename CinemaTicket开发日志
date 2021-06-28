@@ -102,6 +102,7 @@
 
                     解决方案：session复制、粘性session、session共享
 
+                对于登录方案，通过在html页面展示，通过Ajax异步请求，向数据库读取数据；
 
 
 

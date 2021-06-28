@@ -17,7 +17,7 @@
     from user
   </select>
   <select id="selectByUserKey" resultMap="BaseResultMap">
-    select select u_id, username, password
+   select u_id, username, password
     from user
     where username = #{username} and password =#{password}
   </select>

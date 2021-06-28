@@ -1,6 +1,8 @@
 package com.juwuhe.dao;
 
 import com.juwuhe.entity.User;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface UserMapper {
@@ -8,5 +10,5 @@ public interface UserMapper {
 
     List<User> selectAll();
 
-    User selectByUserKey (String username,String password);
+    User selectByUserKey (@Param("username") String username,@Param("password") String password);
 }
