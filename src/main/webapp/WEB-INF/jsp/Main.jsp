@@ -3,12 +3,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>无限</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="layui/css/layui.css"  media="all">
 </head>
 
 <%--CSS样式--%>
@@ -49,24 +48,25 @@
             <li class="layui-nav-item layui-hide layui-show-md-inline-block">
 
 
-                <c:if test="${sessionScope.User.username ==null && sessionScope.User.password ==null  }">
-                <a href="Login">
-                    <img src="img/NotLogin.png" class="layui-nav-img">
-                    未登录
-                </a>
-                </c:if>
-                <c:if test="${sessionScope.User.username != null && sessionScope.User.password != null }">
-                    <a href="User">
-                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
-                    ${sessionScope.User.username}
+                <c:if test="${sessionScope.user.username ==null && sessionScope.user.password ==null  }">
+                    <a href="Login">
+                        <img src="img/NotLogin.png" class="layui-nav-img">
+                        未登录
                     </a>
                 </c:if>
 
-                <dl class="layui-nav-child">
-                    <dd><a href="">Your Profile</a></dd>
-                    <dd><a href="">Settings</a></dd>
-                    <dd><a href="">Sign out</a></dd>
-                </dl>
+                <c:if test="${sessionScope.user.username != null && sessionScope.user.password != null }">
+                    <a href="User">
+                    <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+                    ${sessionScope.user.username}
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">我的订单</a></dd>
+                        <dd><a href="">基本信息</a></dd>
+                        <dd><a href="SignOut">退出登录</a></dd>
+                    </dl>
+                </c:if>
+
             </li>
         </ul>
     </div>
@@ -114,8 +114,16 @@
 
 
 <script src="layui/layui.js" charset="utf-8"></script>
-<script >
+<script>
+    layui.use('element', function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
 
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
 </script>
 </body>
 </html>

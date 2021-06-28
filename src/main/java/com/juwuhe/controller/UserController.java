@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Enumeration;
 
 @Controller
 public class UserController {
@@ -34,6 +35,15 @@ public class UserController {
           return "redirect:Main";
       }
         return "redirect:Login";
+    }
+
+    @RequestMapping("/SignOut")
+    public String SignOut (HttpServletRequest request) {
+        Enumeration em = request.getSession().getAttributeNames();
+        while(em.hasMoreElements()){
+            request.getSession().removeAttribute(em.nextElement().toString());
+        }
+        return "redirect:Main";
     }
 
 }
