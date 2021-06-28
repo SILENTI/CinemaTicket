@@ -24,7 +24,6 @@ public class UserController {
 
     @RequestMapping("/UserLogin")
     public String UserLogin (@RequestParam("userName") String username , @RequestParam("passWord") String password , HttpServletRequest request){
-        System.out.println("LoginUser!!!!!!"+username+password);
         String judge = userServiceimpl.selectUserByKey(username,password);
       if (judge.equals("登录成功")){
           ThreadLocal threadLocal = ThreadLocalManager.getTreadLocal(username);
@@ -42,6 +41,11 @@ public class UserController {
             request.getSession().removeAttribute(em.nextElement().toString());
         }
         return "redirect:Main";
+    }
+
+    @RequestMapping("/User")
+    public String User () {
+        return "User";
     }
 
 }
