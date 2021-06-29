@@ -1,6 +1,7 @@
 package com.juwuhe.dao;
 
 import com.juwuhe.entity.Paly;
+
 import java.util.List;
 
 public interface PalyMapper {

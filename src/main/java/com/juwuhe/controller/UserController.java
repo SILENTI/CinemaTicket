@@ -29,9 +29,9 @@ public class UserController {
           ThreadLocal threadLocal = ThreadLocalManager.getTreadLocal(username);
           User user = (User) threadLocal.get();
           request.getSession().setAttribute("user",user);
-          return "redirect:Main";
+          return "Main";
       }
-        return "redirect:Login";
+        return "Login";
     }
 
     @RequestMapping("/SignOut")
@@ -40,7 +40,7 @@ public class UserController {
         while(em.hasMoreElements()){
             request.getSession().removeAttribute(em.nextElement().toString());
         }
-        return "redirect:Main";
+        return "Main";
     }
 
     @RequestMapping("/User")
