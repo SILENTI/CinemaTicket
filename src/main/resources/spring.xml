@@ -35,7 +35,7 @@
         <bean id="SqlSession" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
             <property name="sqlSessionFactoryBeanName" value="factory"/>
             <!--通过连接SqlSessionFactory创建SqlSession对象-->
-            <property name="basePackage" value="com.juwuhe.fds.dao"/>
+            <property name="basePackage" value="com.juwuhe.dao"/>
             <!--扫描包下-->
         </bean>
 

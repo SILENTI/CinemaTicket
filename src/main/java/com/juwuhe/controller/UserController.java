@@ -1,7 +1,7 @@
 package com.juwuhe.controller;
 
 import com.juwuhe.entity.User;
-import com.juwuhe.service.impl.UserServiceimpl;
+import com.juwuhe.service.UserService;
 import com.juwuhe.util.ThreadLocalManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +20,11 @@ public class UserController {
     }
 
     @Autowired
-    private UserServiceimpl userServiceimpl;
+    private UserService userService;
 
     @RequestMapping("/UserLogin")
     public String UserLogin (@RequestParam("userName") String username , @RequestParam("passWord") String password , HttpServletRequest request){
-        String judge = userServiceimpl.selectUserByKey(username,password);
+        String judge = userService.selectUserByKey(username,password);
       if (judge.equals("登录成功")){
           ThreadLocal threadLocal = ThreadLocalManager.getTreadLocal(username);
           User user = (User) threadLocal.get();
@@ -46,6 +46,11 @@ public class UserController {
     @RequestMapping("/User")
     public String User () {
         return "User";
+    }
+
+    @RequestMapping("/BackLogin")
+    public String BackLogin (){
+        return "BackLogin";
     }
 
 }

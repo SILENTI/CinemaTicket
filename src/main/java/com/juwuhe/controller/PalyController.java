@@ -1,6 +1,6 @@
 package com.juwuhe.controller;
 
-import com.juwuhe.service.impl.PalyServiceimpl;
+import com.juwuhe.service.PalyService;
 import com.juwuhe.vo.PalyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,13 +13,13 @@ import java.util.List;
 public class PalyController {
 
     @Autowired
-    private PalyServiceimpl palyServiceimpl;
+    private PalyService palyService;
 
     /**查询paly表记录*/
     @RequestMapping("/filmPalyInfo")
     @ResponseBody
     public List<PalyVO> findPaly (String filmid){
-        List<PalyVO> palyVOS = palyServiceimpl.getPalyByFilmID(filmid);
+        List<PalyVO> palyVOS = palyService.getPalyByFilmID(filmid);
         System.out.println(palyVOS);
         return palyVOS;
     }

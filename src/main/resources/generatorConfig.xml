@@ -19,13 +19,13 @@
                         userId="root" password="root"/>
 
         <!--生成entity/domain对象-->
-        <javaModelGenerator targetPackage="com.juwuhe.fds.entity" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.juwuhe.entity" targetProject="src/main/java"/>
 
         <!--生成mapper文件-->
         <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources"/>
 
         <!--生成mapper接口/dao接口-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.juwuhe.fds.dao" targetProject="src/main/java"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.juwuhe.dao" targetProject="src/main/java"/>
 
         <!--对应表名-->
         <table tableName="user"/>
