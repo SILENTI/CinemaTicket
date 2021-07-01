@@ -49,6 +49,7 @@
                     <p>剧情简介: ${detailVo.synopsis}</p>
                     <strong>
                         <a href="shopping?detailVoId=${detailVo.filmId}">购票</a>
+                        <a href="Play?filmid=${detailVo.filmId}">排片信息</a>
                     </strong>
                 </div>
             </div>
