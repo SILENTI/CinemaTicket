@@ -4,8 +4,9 @@ import com.juwuhe.service.PalyService;
 import com.juwuhe.vo.PalyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -15,12 +16,10 @@ public class PalyController {
     @Autowired
     private PalyService palyService;
 
-    /**查询paly表记录*/
-    @RequestMapping("/filmPalyInfo")
-    @ResponseBody
-    public List<PalyVO> findPaly (String filmid){
-        List<PalyVO> palyVOS = palyService.getPalyByFilmID(filmid);
-        System.out.println(palyVOS);
-        return palyVOS;
+    @RequestMapping(value = {"/Play"},method = RequestMethod.GET)
+    public String playInfo (String filmid, Model model){
+        List<PalyVO> palyVOs = palyService.getPalyByFilmID(filmid);
+        model.addAttribute("playVos",palyVOs);
+        return "Play";
     }
 }

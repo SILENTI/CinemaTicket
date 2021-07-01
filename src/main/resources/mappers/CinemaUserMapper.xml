@@ -7,18 +7,18 @@
     <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <insert id="insert" parameterType="com.juwuhe.entity.User">
-    insert into user (u_id, username, password
+    insert into cinema_use (u_id, username, password
       )
     values (#{uId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
   <select id="selectAll" resultMap="BaseResultMap">
     select u_id, username, password
-    from user
+    from cinema_use
   </select>
   <select id="selectByUserKey" resultMap="BaseResultMap">
    select u_id, username, password
-    from user
+    from cinema_use
     where username = #{username} and password =#{password}
   </select>
 </mapper>

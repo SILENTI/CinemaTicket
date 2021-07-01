@@ -28,6 +28,6 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.juwuhe.dao" targetProject="src/main/java"/>
 
         <!--对应表名-->
-        <table tableName="user"/>
+        <table tableName="cinema_play"/>
     </context>
 </generatorConfiguration>

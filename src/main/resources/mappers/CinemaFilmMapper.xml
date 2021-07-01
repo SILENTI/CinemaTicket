@@ -4,11 +4,11 @@
 <mapper namespace="com.juwuhe.dao.FilmMapper">
 
     <select id="selectFilm"  resultType="com.juwuhe.entity.Film">
-        select * from film
+        select * from cinema_film
     </select>
 
     <select id="selectFilmInfo"  resultType="com.juwuhe.entity.Film">
-        select * from film where film_id = #{filmid}
+        select * from cinema_film where film_id = #{filmid}
     </select>
 
 </mapper>

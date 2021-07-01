@@ -28,7 +28,7 @@
 <body>
 <div class="main-bg" id="mian">
     <!-- title -->
-    <h1>uimaker后台管理系统</h1>
+    <h1>无限后台管理系统</h1>
     <!-- //title -->
     <div class="sub-main-w3">
         <div class="image-style">
@@ -100,7 +100,7 @@
     <!-- copyright -->
     <div class="copyright">
         <h2>Copyright &copy; 2019 - {{nowYear}} 版权所有| by
-            <a href="#">ChanKwongwing</a>
+            <a href="#">JUWUHE</a>
         </h2>
     </div>
     <!-- //copyright -->
@@ -110,7 +110,7 @@
 <!-- script   -->
 <script src="https://www.jq22.com/jquery/vue.min.js"></script>
 <!-- JavaScript 代码需要放在尾部（指定的HTML元素之后） -->
-<script>
+<%--<script>
     new Vue({
         el:'#mian',
         data: {
@@ -129,7 +129,7 @@
             }
         }
     });
-</script>
+</script>--%>
 <!-- //script -->
 
 </html>

@@ -16,7 +16,7 @@
       and ordercol = #{ordercol,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.juwuhe.entity.Order">
-    insert into order (id, ordercol, create_time, 
+    insert into cinema_order (id, ordercol, create_time,
       price, play_id, seat, 
       u_id)
     values (#{id,jdbcType=INTEGER}, #{ordercol,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
@@ -24,7 +24,7 @@
       #{uId,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.juwuhe.entity.Order">
-    update order
+    update cinema_order
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       price = #{price,jdbcType=DECIMAL},
       play_id = #{playId,jdbcType=VARCHAR},
@@ -35,12 +35,12 @@
   </update>
   <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
     select id, ordercol, create_time, price, play_id, seat, u_id
-    from order
+    from cinema_order
     where id = #{id,jdbcType=INTEGER}
       and ordercol = #{ordercol,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, ordercol, create_time, price, play_id, seat, u_id
-    from order
+    from cinema_order
   </select>
 </mapper>

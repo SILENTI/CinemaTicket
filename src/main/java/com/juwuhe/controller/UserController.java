@@ -50,7 +50,7 @@ public class UserController {
 
     @RequestMapping("/BackLogin")
     public String BackLogin (){
-        return "BackLogin";
+        return "AdminLogin";
     }
 
 }

@@ -8,18 +8,18 @@
     <result column="situation" jdbcType="VARCHAR" property="situation" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="map">
-    delete from room
+    delete from cinema_room
     where id = #{id,jdbcType=INTEGER}
       and room_id = #{roomId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.juwuhe.entity.Room">
-    insert into room (id, room_id, room_name, 
+    insert into cinema_room (id, room_id, room_name,
       situation)
     values (#{id,jdbcType=INTEGER}, #{roomId,jdbcType=VARCHAR}, #{roomName,jdbcType=VARCHAR}, 
       #{situation,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.juwuhe.entity.Room">
-    update room
+    update cinema_room
     set room_name = #{roomName,jdbcType=VARCHAR},
       situation = #{situation,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
@@ -27,12 +27,12 @@
   </update>
   <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
     select id, room_id, room_name, situation
-    from room
+    from cinema_room
     where id = #{id,jdbcType=INTEGER}
       and room_id = #{roomId,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, room_id, room_name, situation
-    from room
+    from cinema_room
   </select>
 </mapper>

@@ -1,7 +1,7 @@
 package com.juwuhe.service.impl;
 
-import com.juwuhe.dao.PalyMapper;
-import com.juwuhe.entity.Paly;
+import com.juwuhe.dao.CinemaPlayMapper;
+import com.juwuhe.entity.CinemaPlay;
 import com.juwuhe.service.PalyService;
 import com.juwuhe.vo.PalyVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,13 @@ import java.util.List;
 public class PalyServiceimpl implements PalyService {
 
     @Autowired
-    private PalyMapper palyMapper;
+    private CinemaPlayMapper palyMapper;
 
     @Override
     public List<PalyVO> getPalyByFilmID(String film_id) {
-        List<Paly> palies = palyMapper.selectByFilmKey(film_id);
+        List<CinemaPlay> palies = palyMapper.selectByFilmKey(film_id);
         ArrayList<PalyVO> palyVOS = new ArrayList<>();
-        for (Paly paly : palies){
+        for (CinemaPlay paly : palies){
             PalyVO palyVO = new PalyVO();
             palyVO.setFilmId(paly.getFilmId());
             palyVO.setLanType(paly.getLanType());

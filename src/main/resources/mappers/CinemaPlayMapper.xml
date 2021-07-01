@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.juwuhe.dao.PalyMapper">
-  <resultMap id="BaseResultMap" type="com.juwuhe.entity.Paly">
+<mapper namespace="com.juwuhe.dao.CinemaPlayMapper">
+  <resultMap id="BaseResultMap" type="com.juwuhe.entity.CinemaPlay">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="play_id" jdbcType="VARCHAR" property="playId" />
     <result column="play_time" jdbcType="TIMESTAMP" property="playTime" />
@@ -13,11 +13,11 @@
     <result column="film_name" jdbcType="VARCHAR" property="filmName" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from paly
+    delete from cinema_play
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.juwuhe.entity.Paly">
-    insert into paly (id, play_id, play_time, 
+  <insert id="insert" parameterType="com.juwuhe.entity.CinemaPlay">
+    insert into cinema_play (id, play_id, play_time, 
       lan_type, price, room_id, 
       room_name, film_id, film_name
       )
@@ -26,8 +26,8 @@
       #{roomName,jdbcType=VARCHAR}, #{filmId,jdbcType=VARCHAR}, #{filmName,jdbcType=VARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.juwuhe.entity.Paly">
-    update paly
+  <update id="updateByPrimaryKey" parameterType="com.juwuhe.entity.CinemaPlay">
+    update cinema_play
     set play_id = #{playId,jdbcType=VARCHAR},
       play_time = #{playTime,jdbcType=TIMESTAMP},
       lan_type = #{lanType,jdbcType=VARCHAR},
@@ -40,17 +40,16 @@
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, play_id, play_time, lan_type, price, room_id, room_name, film_id, film_name
-    from paly
+    from cinema_play
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, play_id, play_time, lan_type, price, room_id, room_name, film_id, film_name
-    from paly
+    from cinema_play
   </select>
-
   <select id="selectByFilmKey" resultMap="BaseResultMap">
     select id, play_id, play_time, lan_type, price, room_id, room_name, film_id, film_name
-    from paly
+    from cinema_play
     where film_id = #{film_id}
   </select>
 </mapper>
