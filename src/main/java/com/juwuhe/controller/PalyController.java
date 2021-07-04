@@ -2,6 +2,7 @@ package com.juwuhe.controller;
 
 import com.juwuhe.service.PalyService;
 import com.juwuhe.vo.PalyVO;
+import com.juwuhe.vo.PlayDetaVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,5 +22,12 @@ public class PalyController {
         List<PalyVO> palyVOs = palyService.getPalyByFilmID(filmid);
         model.addAttribute("playVos",palyVOs);
         return "Play";
+    }
+
+    @RequestMapping("/Seat")
+    public String seatInfo (String playid , Model model){
+        PlayDetaVo playDetaVo = palyService.getByPlayAndRoomById(playid);
+        model.addAttribute("detailVo",playDetaVo);
+        return "Seat";
     }
 }

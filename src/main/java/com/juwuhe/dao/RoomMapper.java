@@ -15,4 +15,6 @@ public interface RoomMapper {
 
     int updateByPrimaryKey(Room record);
 
+    Room selectByID (String room_id);
+
 }

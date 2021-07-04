@@ -52,4 +52,5 @@
     from cinema_play
     where film_id = #{film_id}
   </select>
+    <select id="selectByPlayID" resultType="com.juwuhe.entity.Paly"></select>
 </mapper>

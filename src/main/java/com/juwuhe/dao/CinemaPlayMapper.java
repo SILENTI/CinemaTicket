@@ -17,4 +17,6 @@ public interface CinemaPlayMapper {
     int updateByPrimaryKey(CinemaPlay record);
 
     List<CinemaPlay> selectByFilmKey (String film_id);
+
+    Paly selectByPlayID (String film_id);
 }

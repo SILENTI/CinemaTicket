@@ -35,4 +35,5 @@
     select id, room_id, room_name, situation
     from cinema_room
   </select>
+    <select id="selectByID" resultType="com.juwuhe.entity.Room"></select>
 </mapper>

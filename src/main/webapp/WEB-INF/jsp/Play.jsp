@@ -55,7 +55,7 @@
                     <td>${playVo.roomName}</td>
                     <td>${playVo.price}</td>
                     <td class="col-sm-2">
-                        <a href="seat?playId=${playVo.playId}">选座购票</a>
+                        <a href="Seat?playId=${playVo.playId}">选座购票</a>
                     </td>
                 </tr>
             </c:forEach>
